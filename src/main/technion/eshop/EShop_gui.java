@@ -69,7 +69,7 @@ public class EShop_gui {
 						// TODO - write a message on window
 						System.out.println("choose another name please");
 					} else {
-						Cart_gui myGUI = new Cart_gui(name);
+						Cart_gui myGUI = new Cart_gui(newCart);
 						Cart_gui.main2(null);
 						frame.setVisible(false);
 					}

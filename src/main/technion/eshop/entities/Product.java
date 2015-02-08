@@ -12,7 +12,6 @@ public class Product {
 
 	private static Integer idGenerator = 1;
 
-
 	public Product(String name, Integer price, Integer day, Integer month,
 			Integer year) {
 
@@ -97,6 +96,12 @@ public class Product {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return name + " price: " + price + ", expiration date: " + day + "/"
+				+ month + "/" + year;
 	}
 
 }

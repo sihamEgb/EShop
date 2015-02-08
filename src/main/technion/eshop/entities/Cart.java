@@ -101,4 +101,21 @@ public class Cart {
 			return false;
 		}
 	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public Integer getSum() {
+		return sum;
+	}
+
+	public void setSum(Integer sum) {
+		this.sum = sum;
+	}
+	
 }
