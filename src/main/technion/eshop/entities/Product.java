@@ -1,4 +1,4 @@
-package technion.eshop;
+package technion.eshop.entities;
 
 public class Product {
 
@@ -10,7 +10,21 @@ public class Product {
 	private Integer month;
 	private Integer year;
 
-	// private Integer quantity;
+	private static Integer idGenerator = 1;
+
+
+	public Product(String name, Integer price, Integer day, Integer month,
+			Integer year) {
+
+		this.name = name;
+		this.price = price;
+		this.day = day;
+		this.month = month;
+		this.year = year;
+
+		id = idGenerator.toString();
+		idGenerator++;
+	}
 
 	public Integer getPrice() {
 		return price;
@@ -36,7 +50,6 @@ public class Product {
 		this.name = name;
 	}
 
-	
 	public Integer getDay() {
 		return day;
 	}

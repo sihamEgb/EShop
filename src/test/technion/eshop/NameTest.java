@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import technion.eshop.entities.Cart;
+
 public class NameTest {
 
 	@Test

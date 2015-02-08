@@ -4,11 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import technion.eshop.entities.Product;
+
 public class DateTest {
 
-	private Product p1 = new Product();
-	private Product p2 = new Product();
-	private Product p3 = new Product();
+	//private Product p1 = new Product();
+	//private Product p2 = new Product();
+	//private Product p3 = new Product();
 
 	@Test
 	public void productExpiresIn48() {
@@ -17,7 +19,7 @@ public class DateTest {
 
 	@Test
 	public void productExpiresInMore48() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented")storeProducts.add(p1);;
 	}
 
 	@Test

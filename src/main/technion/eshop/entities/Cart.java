@@ -1,4 +1,4 @@
-package technion.eshop;
+package technion.eshop.entities;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -8,16 +8,16 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public class Cart {
 
+	private static Integer idGenerator = 1;
+	private String id;
 	private String customerName;
 	private Integer sum;
 	private Set<Product> productsInCart;
 
-	// TODO delete,,,
-	public Cart() {
-
-	}
+	
 
 	private Cart(String name) {
 		this.customerName = name;
@@ -26,17 +26,17 @@ public class Cart {
 	}
 
 	// TODO up to 8 chars ...is 0 allowed?
-	public static Cart init(String name) throws Exception {
+	public static Cart init(String name) {
 
 		Pattern p = Pattern.compile("[a-zA-Z0-9]*");
 		Matcher m = p.matcher(name);
 		boolean b = m.matches();
 
-		if ((name.length() == 8) && (b == true)) {
+		if ((name.length() <= 8) && (b == true)) {
 			Cart cart = new Cart(name);
 			return cart;
 		}
-		throw new Exception("choose another name");
+		return null;
 	}
 
 	public void addProduct(Product p) {

@@ -1,10 +1,12 @@
 package technion.eshop;
 
+import technion.eshop.entities.Cart;
+
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main3(String[] args) {
 		try {
-			Cart cart = new Cart();
+			//Cart cart = new Cart();
 			//cart.isDateOk();
 			
 			//Cart.init("12A457a8");
