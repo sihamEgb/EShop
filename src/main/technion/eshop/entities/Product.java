@@ -1,9 +1,12 @@
 package technion.eshop.entities;
 
+import com.google.gson.Gson;
+
 public class Product {
 
 	private String id;
 	private String name;
+	private String brand;
 	private Integer price;
 
 	private Integer day;
@@ -12,10 +15,11 @@ public class Product {
 
 	private static Integer idGenerator = 1;
 
-	public Product(String name, Integer price, Integer day, Integer month,
+	public Product(String name, String brand, Integer price, Integer day, Integer month,
 			Integer year) {
 
 		this.name = name;
+		this.brand = brand;
 		this.price = price;
 		this.day = day;
 		this.month = month;
@@ -100,8 +104,19 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return name + " price: " + price + ", expiration date: " + day + "/"
+		return name + " from" + brand+ " price: " + price + ", expiration date: " + day + "/"
 				+ month + "/" + year;
+	}
+
+	public String toJson() {
+		Gson gson = new Gson();
+		String json = gson.toJson(this);
+		return json;
+	}
+
+	public static Product constructFromJson(String json) {
+		Gson gson = new Gson();
+		return gson.fromJson(json, Product.class);
 	}
 
 }

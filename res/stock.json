@@ -1,0 +1,41 @@
+[
+  { "id": "1",
+  	"brand": "Yotvata",
+    "name": "milk",
+    "price": 5,
+	"day": 16,
+	"month": 2,
+	"year": 2015},
+	
+	{ "id": "2",
+    "name": "milk",
+    "brand": "Tara",
+    "price": 6,
+	"day": 17,
+	"month": 2,
+	"year": 2015},
+	
+	{ "id": "3",
+    "name": "Bamba",
+    "brand": "Osem",
+    "price": 10,
+	"day": 20,
+	"month": 3,
+	"year": 2015},
+	{ "id": "3",
+    "name": "Bamba",
+    "brand": "Osem",
+    "price": 10,
+	"day": 20,
+	"month": 3,
+	"year": 2015},
+	{ "id": "3",
+    "name": "Bamba",
+    "brand": "Osem",
+    "price": 10,
+	"day": 20,
+	"month": 3,
+	"year": 2015}
+	
+  ]
+  

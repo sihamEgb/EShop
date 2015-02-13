@@ -23,11 +23,11 @@ public class Shipment_gui {
 	private JFrame frame;
 	private JTextField textField;
 	private JComboBox<Product> comboBox;
-	
+
 	/**
 	 * Launch the application.
 	 */
-	public static void main3(String[] args) {
+	public void main3(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -35,7 +35,7 @@ public class Shipment_gui {
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
-				}	
+				}
 			}
 		});
 	}
@@ -52,38 +52,38 @@ public class Shipment_gui {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 500, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JButton btnSend = new JButton("SEND");
 		btnSend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO
+				// TODO
 				System.out.println("thank you for using ESHop");
 			}
 		});
 		btnSend.setBounds(335, 228, 89, 23);
-		//TODO disable button !!!
+		// TODO disable button !!!
 		btnSend.enableInputMethods(false);
 		frame.getContentPane().add(btnSend);
-		
+
 		JLabel label = new JLabel("insert your name:");
 		label.setBounds(31, 34, 129, 14);
 		frame.getContentPane().add(label);
-		
+
 		textField = new JTextField();
 		textField.setColumns(10);
 		textField.setBounds(126, 31, 86, 20);
 		frame.getContentPane().add(textField);
-		
+
 		JLabel lblAddProductsTo = new JLabel("add products to boxes");
 		lblAddProductsTo.setBounds(31, 88, 108, 14);
 		frame.getContentPane().add(lblAddProductsTo);
-		
+
 		comboBox = new JComboBox<Product>();
 		comboBox.setBounds(172, 85, 89, 20);
 		frame.getContentPane().add(comboBox);
-		
-		}
+
+	}
 }

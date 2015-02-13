@@ -2,17 +2,28 @@ package technion.eshop;
 
 import java.awt.EventQueue;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
+
 import javax.swing.JLabel;
 
 import technion.eshop.entities.Cart;
+import technion.eshop.entities.Product;
+import technion.eshop.entities.Store;
+
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.JPanel;
+
+import com.google.gson.Gson;
 
 public class EShop_gui {
 
@@ -21,6 +32,7 @@ public class EShop_gui {
 
 	private static Integer i = 0;
 	private JTextField txtName;
+	private DefaultComboBoxModel model;
 
 	/**
 	 * Launch the application.
@@ -50,28 +62,27 @@ public class EShop_gui {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(10, 10, 500, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		btnCalculate = new JButton("init cart");
+		final Store myStore = new Store();
+		model = new javax.swing.DefaultComboBoxModel(myStore.getProducts().toArray());
 
 		btnCalculate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// System.out.println("siham");
-				// i++;
 
-				// Cart myCart = new Cart();
 				String name = txtName.getText();
 				try {
-					Cart newCart = Cart.init(name);
+					Cart newCart = myStore.addCart(name);
 					if (newCart == null) {
 						// TODO - write a message on window
 						System.out.println("choose another name please");
 					} else {
-						Cart_gui myGUI = new Cart_gui(newCart);
-						Cart_gui.main2(null);
-						frame.setVisible(false);
+						Cart_gui myGUI = new Cart_gui(newCart,model);
+						myGUI.main2(null);
+						// frame.setVisible(false);
 					}
 
 				} catch (Exception e) {
@@ -96,5 +107,7 @@ public class EShop_gui {
 		JLabel lblWelcomeToEshop = new JLabel("Welcome to EShop");
 		lblWelcomeToEshop.setBounds(162, 11, 135, 14);
 		frame.getContentPane().add(lblWelcomeToEshop);
+
 	}
+
 }
