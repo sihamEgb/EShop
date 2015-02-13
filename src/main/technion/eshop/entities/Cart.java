@@ -1,5 +1,6 @@
 package technion.eshop.entities;
 
+import java.awt.Toolkit;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -32,6 +33,8 @@ public class Cart {
 	public void addProduct(Product p) {
 
 		if (isDateBad(p.getYear(), p.getMonth(), p.getDay()) == true) {
+			System.out.println("pay attention to expiration date");
+			Toolkit.getDefaultToolkit().beep();
 			// TODO bleep + remove product from store/stock
 
 		}
@@ -59,21 +62,22 @@ public class Cart {
 	}
 
 	/**
-	 * is the date more than two days?
+	 * is the product more than two days expired
 	 */
 	public boolean isDateBad(Integer year, Integer month, Integer day) {
 		{
 			Calendar start = Calendar.getInstance();
 			Calendar end = Calendar.getInstance();
-
-			// TODO - save a date 20/1/2015
-			start.set(Calendar.DAY_OF_MONTH, 20);
-			start.set(Calendar.YEAR, 2015);
-			start.set(Calendar.MONTH, 0);
+			
+			Calendar now = Calendar.getInstance();   // Gets the current date and time
+			
+			start.set(Calendar.DAY_OF_MONTH, now.get(Calendar.DAY_OF_MONTH));
+			start.set(Calendar.YEAR, now.get(Calendar.YEAR));
+			start.set(Calendar.MONTH, now.get(Calendar.MONTH));
 
 			end.set(Calendar.DAY_OF_MONTH, day);
 			end.set(Calendar.YEAR, year);
-			end.set(Calendar.MONTH, month);
+			end.set(Calendar.MONTH, month-1);
 
 			Date startDate = start.getTime();
 			Date endDate = end.getTime();
@@ -88,7 +92,7 @@ public class Cart {
 							+ dateFormat.format(endDate) + " is " + diffDays
 							+ " days.");
 
-			if (diffDays <= 2)
+			if (diffDays <= -2)
 				return true;
 			return false;
 		}

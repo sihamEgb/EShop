@@ -49,7 +49,7 @@ public class Store {
 			Product[] arr = gson.fromJson(br, Product[].class);
 
 			for (Product p : arr) {
-				System.out.println("Name Of product: " + p.getName());
+				//System.out.println("Name Of product: " + p.getName());
 				stockProducts.add(p);
 			}
 

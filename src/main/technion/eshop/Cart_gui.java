@@ -130,7 +130,7 @@ public class Cart_gui {
 				model.removeElement(p);
 				stockProducts.setModel(model);
 
-				System.out.println(currCart.getStoreProducts());
+				//System.out.println(currCart.getStoreProducts());
 
 			}
 		});
