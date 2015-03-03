@@ -100,7 +100,7 @@ public class Cart_gui {
 		btnShipmentStation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				Shipment_gui myGUI = new Shipment_gui();
+				Shipment_gui myGUI = new Shipment_gui(currCart);
 				myGUI.main3(null);
 				frame.setVisible(false);
 

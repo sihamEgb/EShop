@@ -37,6 +37,22 @@
     "price": 10,
 	"day": 20,
 	"month": 3,
+	"year": 2015},
+	
+	{ "id": "6",
+    "name": "Besly",
+    "brand": "Osem",
+    "price": 27,
+	"day": 20,
+	"month": 3,
+	"year": 2015},
+	
+	{ "id": "7",
+    "name": "Cola",
+    "brand": "Pepsi",
+    "price": 3,
+	"day": 24,
+	"month": 10,
 	"year": 2015}
 	
   ]

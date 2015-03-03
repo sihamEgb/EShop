@@ -8,11 +8,11 @@ public class Box {
 	private static Integer idGenerator = 1;
 	private String id;
 	private String shipmentId;
-	private Integer count;
+	// private Integer count;
 	private Set<Product> products;
 
 	public Box(String shipmentId) {
-		count = 0;
+		// count = 0;
 		id = idGenerator.toString();
 		idGenerator++;
 		this.shipmentId = shipmentId;
@@ -20,12 +20,20 @@ public class Box {
 	}
 
 	public boolean addProduct(Product addedProduct) {
-		if (count < 5) {
-			products.add(addedProduct);
-			count++;
-			return true;
-		}
-		return false;
+		if (products.size() >= 5)
+			return false;
+		products.add(addedProduct);
+		return true;
+	}
 
+	@Override
+	public String toString() {
+		/*
+		String s = "";
+		for (Product p : products)
+			s += p + "\n";
+		return s;
+		*/
+		return id;
 	}
 }
