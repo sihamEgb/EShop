@@ -36,4 +36,12 @@ public class Box {
 		*/
 		return id;
 	}
+	
+	public String getShipmentId(){
+		return this.shipmentId;
+	}
+	
+	public  Set<Product> getProducts(){
+		return this.products;
+	}
 }
