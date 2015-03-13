@@ -52,13 +52,22 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 
 	public Integer getDay() {
 		return day;
 	}
 
 	public void setDay(Integer day) {
-		this.day = day;
+		if(day>=1 && day<=31)
+			this.day = day;
 	}
 
 	public Integer getMonth() {
@@ -66,7 +75,8 @@ public class Product {
 	}
 
 	public void setMonth(Integer month) {
-		this.month = month;
+		if(month>=1 && month<=12)
+			this.month = month;
 	}
 
 	public Integer getYear() {
@@ -74,7 +84,8 @@ public class Product {
 	}
 
 	public void setYear(Integer year) {
-		this.year = year;
+		if(year>=0)
+			this.year = year;
 	}
 
 	@Override
