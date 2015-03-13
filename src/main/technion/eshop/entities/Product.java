@@ -75,7 +75,7 @@ public class Product {
 	}
 
 	public void setMonth(Integer month) {
-		if(month>=1 && month<=12)
+		if(month>=1 && month<=12 )
 			this.month = month;
 	}
 

@@ -118,7 +118,7 @@ public class ProductTest {
 	@Test
 	public final void testToString() {
 		String name = "Milki";
-		String brand = "Tnova";
+		String brand = "Tnova" ;
 		int price = 7 ; 
 		int day = 9; 
 		int month = 12;
