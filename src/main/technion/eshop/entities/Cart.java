@@ -36,7 +36,7 @@ public class Cart {
 			System.out.println("pay attention to expiration date");
 			Toolkit.getDefaultToolkit().beep();
 			// TODO bleep + remove product from store/stock
-
+            return;
 		}
 
 		// if (p.getDate() - getDate() < 2)
