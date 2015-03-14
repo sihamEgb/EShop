@@ -133,4 +133,7 @@ public class Cart {
 		return productsInCart;
 	}
 
+	public String getCartId(){
+		return id;
+	}
 }
