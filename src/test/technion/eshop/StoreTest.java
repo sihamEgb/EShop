@@ -75,17 +75,22 @@ public class StoreTest {
 			myStore.addCart(String.valueOf(i));
 			assertEquals(myStore.getCurrentCarts().size(),i);
 		}
-		assertEquals(myStore.getCurrentCarts().size(),10);
+		assertEquals(myStore.getCurrentCarts().size(),100);
 		myStore.addCart("343lk24ss");
-		myStore.addCart("343lk24ss");
-		assertEquals(myStore.getCurrentCarts().size(),12);
+		assertEquals(myStore.getCurrentCarts().size(),100);
+		myStore.addCart("343lk4ss");
+		assertEquals(myStore.getCurrentCarts().size(),101);
+		myStore.addCart("343lk4ss");
+		assertEquals(myStore.getCurrentCarts().size(),102);
 	}
 
 	@Test
 	public final void testGetCurrentCarts() {
 		Store myStore = new Store();
 		assertEquals(myStore.getCurrentCarts().size(),0);
-		myStore.addCart("343lk24ss");
+		myStore.addCart("33lk24s");
+		assertEquals(myStore.getCurrentCarts().size(),1);
+		myStore.addCart(" ");
 		assertEquals(myStore.getCurrentCarts().size(),1);
 	}
 
