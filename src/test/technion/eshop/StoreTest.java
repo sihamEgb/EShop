@@ -1,6 +1,9 @@
 package technion.eshop;
 import static org.junit.Assert.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.Test;
 
 import technion.eshop.entities.Product;
@@ -43,8 +46,10 @@ public class StoreTest {
 		Store myStore = new Store();
 		int size = myStore.getProducts().size();
 		int i=0;
-		for(Product p : myStore.getProducts()){
-			 myStore.prodductTaken(p);
+		Set<Product> s = new HashSet<Product>();
+        s.addAll(myStore.getProducts());
+		for(Product p : s){
+			 myStore.productTaken(p);
 			 i++;
 			 assertEquals(myStore.getProducts().size(),size-i);
 			 assertEquals(false,myStore.getProducts().contains(p));
@@ -57,14 +62,16 @@ public class StoreTest {
 		Store myStore = new Store();
 		int size = myStore.getProducts().size();
 		Product p = myStore.getProducts().get(1);
-		myStore.prodductTaken(p);
-		myStore.prodductReturned(p);
+		myStore.productTaken(p);
+		myStore.productReturned(p);
 		assertEquals(true,myStore.getProducts().contains(p));
-		for(Product p1 : myStore.getProducts()){
-			 myStore.prodductTaken(p1);
+		Set<Product> s = new HashSet<Product>();
+        s.addAll(myStore.getProducts());
+		for(Product p1 : s){
+			 myStore.productTaken(p1);
 			 p=p1;
 		}
-		myStore.prodductReturned(p);
+		myStore.productReturned(p);
 		assertEquals(true,myStore.getProducts().contains(p));
 	}
 

@@ -26,6 +26,8 @@ public class Store {
 		stockProducts = new ArrayList<Product>();
 		initProducts();
 		currentCarts = new HashSet<Cart>();
+		shipmentsNumber = new Integer(0);
+		billsNumber = new Integer(0);
 	}
 
 	public void addShipment() {
