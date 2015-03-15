@@ -112,7 +112,7 @@ public class EShop_gui {
 		JButton btnNewButton = new JButton("Statistics");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Stat_gui statGUI = new Stat_gui();
+				Stat_gui statGUI = new Stat_gui(myStore.getReport());
 				statGUI.main6(null);
 			}
 		});
@@ -126,7 +126,8 @@ public class EShop_gui {
 		JButton btnShipmentStationStat = new JButton("Shipment station stat.");
 		btnShipmentStationStat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ShipmentStat_gui shipmentStatGUI = new ShipmentStat_gui(myStore.getReport());
+				ShipmentStat_gui shipmentStatGUI = new ShipmentStat_gui(myStore
+						.getReport());
 				shipmentStatGUI.main5(null);
 			}
 		});

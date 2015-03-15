@@ -11,7 +11,7 @@ public class Report {
 	Integer[] week; // every day in the week traffic report
 	Integer[] day; // every hour in the day traffic report
 
-	Set<String> products;
+	//Set<String> products;
 
 	public Report() {
 		myShipments = new HashSet<Shipment>();
@@ -77,13 +77,44 @@ public class Report {
 		for (Shipment s : myShipments)
 			for (Box b : s.getBoxes())
 				if (b.getId().equals(id)) {
-					System.out.println("the address found is"
-							+ s.getAddress());
+					System.out.println("the address found is" + s.getAddress());
 
 					return s.getAddress();
 				}
 
 		return "";
+	}
+
+	public Set<String> getProducts() {
+		Set<String> products = new HashSet<String>();
+		products.add("Bamba");
+		products.add("Milk");
+		products.add("Besly");
+		products.add("Cola");
+
+		return products;
+	}
+
+	public Set<String> getDays() {
+		Set<String> days = new HashSet<String>();
+		days.add("Sunday");
+		days.add("Monday");
+		days.add("Tuesday");
+		days.add("Wednesday");
+		days.add("Thursday");
+		days.add("Friday");
+		days.add("Saturday");
+
+		return days;
+	}
+
+	public Set<String> getHours() {
+		Set<String> hours = new HashSet<String>();
+
+		for (Integer i = 1; i <= 24; i++)
+			hours.add(i.toString());
+
+		return hours;
 	}
 
 }
