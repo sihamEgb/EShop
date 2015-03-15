@@ -58,7 +58,7 @@ public class Exit_gui {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 500, 400);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JLabel lblAddProductsTo = new JLabel("Thank you for buying in EShop");
@@ -92,7 +92,7 @@ public class Exit_gui {
 		JButton btnDetailedBill = new JButton("Detailed Bill");
 		btnDetailedBill.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				textArea.setText("");
 				for (Product p : myCart.getProductsInCart())
 
 					textArea.append(p.toString() + newline);

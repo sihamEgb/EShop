@@ -35,6 +35,7 @@ public class Cart_gui {
 	private JComboBox<Product> cartProducts;
 	private JButton btnRemoveFromCart;
 	private JLabel lblTotal;
+	private JTextArea textArea;
 
 	private DefaultComboBoxModel model;
 	private Cart currCart;
@@ -72,7 +73,7 @@ public class Cart_gui {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 500, 400);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JLabel lblWelcome = new JLabel("Welcome");
@@ -93,7 +94,7 @@ public class Cart_gui {
 
 			}
 		});
-		btnCheckout.setBounds(305, 215, 89, 23);
+		btnCheckout.setBounds(366, 293, 89, 23);
 		frame.getContentPane().add(btnCheckout);
 
 		btnShipmentStation = new JButton("Shipment Station");
@@ -106,7 +107,7 @@ public class Cart_gui {
 
 			}
 		});
-		btnShipmentStation.setBounds(130, 215, 152, 23);
+		btnShipmentStation.setBounds(166, 293, 152, 23);
 		frame.getContentPane().add(btnShipmentStation);
 
 		lblProductsInStock = new JLabel("products in stock");
@@ -130,7 +131,12 @@ public class Cart_gui {
 				model.removeElement(p);
 				stockProducts.setModel(model);
 
-				//System.out.println(currCart.getStoreProducts());
+				if (currCart.isOnSale(p) == true)
+					textArea.setText("You get a 2+1 sale on this product");
+				else
+					textArea.setText("");
+
+				// System.out.println(currCart.getStoreProducts());
 
 			}
 		});
@@ -154,7 +160,7 @@ public class Cart_gui {
 				currCart.removeProduct(p);
 				model.addElement(p);
 				stockProducts.setModel(model);
-
+				textArea.setText("");
 				lblTotal.setText("total: " + currCart.getSum());
 			}
 		});
@@ -162,10 +168,13 @@ public class Cart_gui {
 		frame.getContentPane().add(btnRemoveFromCart);
 
 		lblTotal = new JLabel("total:");
-		lblTotal.setBounds(20, 168, 77, 14);
+		lblTotal.setBounds(20, 249, 77, 14);
 		lblTotal.setText("total: " + currCart.getSum());
 		frame.getContentPane().add(lblTotal);
 
-	}
+		textArea = new JTextArea();
+		textArea.setBounds(139, 179, 179, 34);
+		frame.getContentPane().add(textArea);
 
+	}
 }

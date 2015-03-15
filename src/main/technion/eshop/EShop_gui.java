@@ -68,7 +68,8 @@ public class EShop_gui {
 
 		btnCalculate = new JButton("init cart");
 		final Store myStore = new Store();
-		model = new javax.swing.DefaultComboBoxModel(myStore.getProducts().toArray());
+		model = new javax.swing.DefaultComboBoxModel(myStore.getProducts()
+				.toArray());
 
 		btnCalculate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -80,7 +81,7 @@ public class EShop_gui {
 						// TODO - write a message on window
 						System.out.println("choose another name please");
 					} else {
-						Cart_gui myGUI = new Cart_gui(newCart,model);
+						Cart_gui myGUI = new Cart_gui(newCart, model);
 						myGUI.main2(null);
 						// frame.setVisible(false);
 					}
@@ -108,6 +109,29 @@ public class EShop_gui {
 		lblWelcomeToEshop.setBounds(162, 11, 135, 14);
 		frame.getContentPane().add(lblWelcomeToEshop);
 
-	}
+		JButton btnNewButton = new JButton("Statistics");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Stat_gui statGUI = new Stat_gui();
+				statGUI.main6(null);
+			}
+		});
+		btnNewButton.setBounds(20, 288, 108, 23);
+		frame.getContentPane().add(btnNewButton);
 
+		JLabel lblForOwnersOnly = new JLabel("For Owners Only");
+		lblForOwnersOnly.setBounds(20, 241, 129, 14);
+		frame.getContentPane().add(lblForOwnersOnly);
+
+		JButton btnShipmentStationStat = new JButton("Shipment station stat.");
+		btnShipmentStationStat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ShipmentStat_gui shipmentStatGUI = new ShipmentStat_gui();
+				shipmentStatGUI.main5(null);
+			}
+		});
+		btnShipmentStationStat.setBounds(172, 288, 168, 23);
+		frame.getContentPane().add(btnShipmentStationStat);
+
+	}
 }

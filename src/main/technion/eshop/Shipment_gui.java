@@ -20,12 +20,17 @@ import javax.swing.JTextArea;
 import javax.swing.JPanel;
 import javax.swing.JList;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPopupMenu;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Dimension;
 
 public class Shipment_gui {
 
 	private JFrame frame;
 	private JTextField textField;
-	private JTextArea textArea;
 
 	private JComboBox<Product> comboBoxProduct;
 	private DefaultComboBoxModel<Product> modelProduct;
@@ -35,6 +40,13 @@ public class Shipment_gui {
 
 	private Cart currCart;
 	private Shipment currShipment;
+
+	private JButton btnAddToBox;
+	private JButton btnSend;
+
+	private JTextArea textArea;
+	private JLabel lblInsertAddress;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -72,17 +84,17 @@ public class Shipment_gui {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 500, 400);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JButton btnSend = new JButton("SEND");
+		btnSend = new JButton("SEND");
 		btnSend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO send to ExitGUI ?
 				System.out.println("thank you for using ESHop");
 			}
 		});
-		btnSend.setBounds(335, 300, 89, 23);
+		btnSend.setBounds(303, 286, 121, 37);
 		// TODO disable button !!!
 		btnSend.enableInputMethods(false);
 		frame.getContentPane().add(btnSend);
@@ -107,7 +119,7 @@ public class Shipment_gui {
 		comboBoxProduct.setBounds(172, 85, 284, 20);
 		frame.getContentPane().add(comboBoxProduct);
 
-		JButton btnAddToBox = new JButton("add to box");
+		btnAddToBox = new JButton("add to box");
 		btnAddToBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO
@@ -118,6 +130,19 @@ public class Shipment_gui {
 				modelBox = new javax.swing.DefaultComboBoxModel(currShipment
 						.getBoxes().toArray());
 				comboBoxBox.setModel(modelBox);
+
+				if (currShipment.getProductsNum() == currCart
+						.getProductsInCart().size()) {
+					System.out.println("now to sending");
+					// visible
+					// textField_1.setEnabled(true);
+					textField_1.setVisible(true);
+					lblInsertAddress.setVisible(true);
+
+					currShipment.setAddress(textField_1.getText());
+					System.out.println("the address is" + textField_1.getText());
+
+				}
 
 				// model.addElement(p);//??
 				// stockProducts.setModel(model);
@@ -138,20 +163,39 @@ public class Shipment_gui {
 		textArea.setBounds(252, 170, 204, 90);
 		textArea.setEditable(false);
 		frame.getContentPane().add(textArea);
-
-		//TODO the box is not selected !!
+		// TODO the box is not selected !!
 		Box b = (Box) comboBoxBox.getSelectedItem();
-		if (b == null)
-		{
+		if (b == null) {
 			System.out.println("the box is null !!!");
 			textArea.setText("");
-		}
-		else
+		} else
 			textArea.setText(b.toString());
 
 		JButton btnInitShipmentStation = new JButton("init shipment station");
+		btnInitShipmentStation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnAddToBox.setEnabled(true);
+				btnSend.setEnabled(true);
+			}
+		});
 		btnInitShipmentStation.setBounds(242, 30, 135, 23);
 		frame.getContentPane().add(btnInitShipmentStation);
 
+		btnAddToBox.setEnabled(false);
+		btnSend.setEnabled(false);
+
+		lblInsertAddress = new JLabel("Insert address");
+		lblInsertAddress.setBounds(31, 272, 86, 14);
+		frame.getContentPane().add(lblInsertAddress);
+		lblInsertAddress.setVisible(false);
+
+		textField_1 = new JTextField();
+		// textField_1.setEnabled(false);
+		textField_1.setVisible(false);
+		textField_1.setBounds(126, 269, 135, 20);
+		frame.getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+
 	}
+
 }
