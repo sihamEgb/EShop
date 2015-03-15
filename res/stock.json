@@ -83,16 +83,16 @@
     "name": "Cola",
     "brand": "Pepsi",
     "price": 12,
-	"day": 10,
-	"month": 9,
-	"year": 2018},
+	"day": 14,
+	"month": 3,
+	"year": 2015},
 	
 	{ "id": "12",
     "name": "Cola",
     "brand": "Coca-Cola",
     "price": 15,
 	"day": 11,
-	"month": 4,
-	"year": 2016}
+	"month": 3,
+	"year": 2015}
   ]
   
