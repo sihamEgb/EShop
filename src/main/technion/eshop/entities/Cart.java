@@ -46,33 +46,39 @@ public class Cart {
 
 		// check if product in sale
 		String id = p.getId();
-		if (id.equals("1") || id.equals("2") || id.equals("3"))
+		if (id.equals("1") || id.equals("2") || id.equals("3")) {
 			sale1++;
-		if (id.equals("5") || id.equals("6") || id.equals("7"))
+			if (sale1 == 3)
+				sum = sum - p.getPrice();
+
+		}
+		if (id.equals("5") || id.equals("6") || id.equals("7")) {
 			sale2++;
-
-		if (sale1 == 2)
-			System.out.println("you get a milk");
-
-		if (sale2 == 2)
-			System.out.println("you get a sale for Bamba");
+			if (sale2 == 3)
+				sum = sum - p.getPrice();
+		}
 
 		// if (p.getDate() - getDate() < 2)
 		sum = sum + p.getPrice();
 		productsInCart.add(p);
-		myStore.prodductTaken(p);
+		myStore.productTaken(p);
 
 	}
 
 	public void removeProduct(Product p) {
 		sum = sum - p.getPrice();
 		productsInCart.remove(p);
-		myStore.prodductReturned(p);
-		if (id.equals("1") || id.equals("2") || id.equals("3"))
+		myStore.productReturned(p);
+		if (id.equals("1") || id.equals("2") || id.equals("3")) {
+			if (sale1 == 3)
+				sum = sum + p.getPrice();
 			sale1--;
-		if (id.equals("5") || id.equals("6") || id.equals("7"))
+		}
+		if (id.equals("5") || id.equals("6") || id.equals("7")) {
+			if (sale2 == 3)
+				sum = sum + p.getPrice();
 			sale2--;
-
+		}
 	}
 
 	public void exitStore() {

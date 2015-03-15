@@ -68,12 +68,12 @@ public class Store {
 		return stockProducts;
 	}
 
-	public void prodductTaken(Product p) {
+	public void productTaken(Product p) {
 		stockProducts.remove(p);
 
 	}
 
-	public void prodductReturned(Product p) {
+	public void productReturned(Product p) {
 		stockProducts.add(p);
 	}
 	
