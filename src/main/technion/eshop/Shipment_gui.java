@@ -91,10 +91,15 @@ public class Shipment_gui {
 		btnSend = new JButton("SEND");
 		btnSend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// TODO
+				currCart.getMyStore().addShipment(currShipment);
+				currShipment.setAddress(textField_1.getText());
+				System.out.println("the address is" + textField_1.getText());
 				// TODO send to ExitGUI ?
 				Exit_gui myGUI = new Exit_gui(currCart);
 				myGUI.main4(null);
 				frame.setVisible(false);
+
 				System.out.println("thank you for using ESHop");
 			}
 		});
@@ -137,14 +142,13 @@ public class Shipment_gui {
 
 				if (currShipment.getProductsNum() == currCart
 						.getProductsInCart().size()) {
-					System.out.println("now to sending");
+
 					// visible
 					// textField_1.setEnabled(true);
 					textField_1.setVisible(true);
 					lblInsertAddress.setVisible(true);
 
-					currShipment.setAddress(textField_1.getText());
-					System.out.println("the address is" + textField_1.getText());
+					btnSend.setEnabled(true);
 
 				}
 
@@ -187,7 +191,6 @@ public class Shipment_gui {
 
 				if (textField.getText().equals(currCart.getCustomerName())) {
 					btnAddToBox.setEnabled(true);
-					btnSend.setEnabled(true);
 					statusLabel.setText("Welcome to Shipment station");
 				} else {
 					statusLabel.setText("Please insert your correct name");

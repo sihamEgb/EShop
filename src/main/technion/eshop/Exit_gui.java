@@ -56,6 +56,9 @@ public class Exit_gui {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+
+		// TODO
+		myCart.getMyStore().addBill(myCart);
 		frame = new JFrame();
 		frame.setBounds(100, 100, 500, 400);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

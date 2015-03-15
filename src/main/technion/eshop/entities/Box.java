@@ -10,7 +10,7 @@ public class Box {
 	private String shipmentId;
 	// private Integer count;
 	private Set<Product> products;
-
+	
 	public Box(String shipmentId) {
 		// count = 0;
 		id = idGenerator.toString();
@@ -45,4 +45,10 @@ public class Box {
 	public Set<Product> getProducts() {
 		return this.products;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	
 }

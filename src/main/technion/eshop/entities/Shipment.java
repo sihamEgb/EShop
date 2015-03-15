@@ -31,7 +31,6 @@ public class Shipment {
 
 		System.out.println("Hello there");
 
-		
 		for (Box b : shipmentBoxes) {
 			System.out.println("%%%%%%%%%%%");
 			System.out.println(b);
@@ -64,6 +63,10 @@ public class Shipment {
 
 	public Integer getProductsNum() {
 		return count;
+	}
+
+	public String getAddress() {
+		return address;
 	}
 
 }
