@@ -31,13 +31,14 @@ public class Shipment {
 
 		System.out.println("Hello there");
 
-		count++;
+		
 		for (Box b : shipmentBoxes) {
 			System.out.println("%%%%%%%%%%%");
 			System.out.println(b);
 		}
 		if (currBox.addProduct(currProduct) == true) {
 			System.out.println("Product" + currProduct + " is added");
+			count++;
 			return true;
 		} else {
 			shipmentBoxes.add(currBox);

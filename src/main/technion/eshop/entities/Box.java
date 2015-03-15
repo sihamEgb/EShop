@@ -28,20 +28,21 @@ public class Box {
 
 	@Override
 	public String toString() {
-		/*
+		return id;
+	}
+
+	public String getBoxContent() {
 		String s = "";
 		for (Product p : products)
 			s += p + "\n";
 		return s;
-		*/
-		return id;
 	}
-	
-	public String getShipmentId(){
+
+	public String getShipmentId() {
 		return this.shipmentId;
 	}
-	
-	public  Set<Product> getProducts(){
+
+	public Set<Product> getProducts() {
 		return this.products;
 	}
 }

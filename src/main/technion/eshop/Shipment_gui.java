@@ -47,6 +47,7 @@ public class Shipment_gui {
 	private JTextArea textArea;
 	private JLabel lblInsertAddress;
 	private JTextField textField_1;
+	private JLabel statusLabel;
 
 	/**
 	 * Launch the application.
@@ -91,6 +92,9 @@ public class Shipment_gui {
 		btnSend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO send to ExitGUI ?
+				Exit_gui myGUI = new Exit_gui(currCart);
+				myGUI.main4(null);
+				frame.setVisible(false);
 				System.out.println("thank you for using ESHop");
 			}
 		});
@@ -151,7 +155,7 @@ public class Shipment_gui {
 		btnAddToBox.setBounds(335, 116, 121, 23);
 		frame.getContentPane().add(btnAddToBox);
 
-		JLabel lblYourBoxes = new JLabel("your boxes");
+		JLabel lblYourBoxes = new JLabel("box id");
 		lblYourBoxes.setBounds(31, 155, 75, 50);
 		frame.getContentPane().add(lblYourBoxes);
 
@@ -160,22 +164,34 @@ public class Shipment_gui {
 		frame.getContentPane().add(comboBoxBox);
 
 		textArea = new JTextArea(5, 20);
-		textArea.setBounds(252, 170, 204, 90);
+		textArea.setBounds(225, 170, 249, 90);
 		textArea.setEditable(false);
 		frame.getContentPane().add(textArea);
-		// TODO the box is not selected !!
-		Box b = (Box) comboBoxBox.getSelectedItem();
-		if (b == null) {
-			System.out.println("the box is null !!!");
-			textArea.setText("");
-		} else
-			textArea.setText(b.toString());
+
+		// the box is not selected !!
+		comboBoxBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Box b = (Box) comboBoxBox.getSelectedItem();
+				if (b == null) {
+					System.out.println("the box is null !!!");
+					textArea.setText("");
+				} else
+					textArea.setText(b.getBoxContent());
+
+			}
+		});
 
 		JButton btnInitShipmentStation = new JButton("init shipment station");
 		btnInitShipmentStation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				btnAddToBox.setEnabled(true);
-				btnSend.setEnabled(true);
+
+				if (textField.getText().equals(currCart.getCustomerName())) {
+					btnAddToBox.setEnabled(true);
+					btnSend.setEnabled(true);
+					statusLabel.setText("Welcome to Shipment station");
+				} else {
+					statusLabel.setText("Please insert your correct name");
+				}
 			}
 		});
 		btnInitShipmentStation.setBounds(242, 30, 135, 23);
@@ -196,6 +212,9 @@ public class Shipment_gui {
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 
-	}
+		statusLabel = new JLabel("New label");
+		statusLabel.setBounds(31, 59, 425, 14);
+		frame.getContentPane().add(statusLabel);
 
+	}
 }
