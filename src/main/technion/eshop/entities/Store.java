@@ -36,6 +36,12 @@ public class Store {
 		billsNumber++;
 	}
 
+	public int getBillsNumber(){
+		return billsNumber.intValue();
+	}
+	public int getShipmentsNumber(){
+		return shipmentsNumber.intValue();
+	}
 	/**
 	 * adds the products in the store...
 	 */

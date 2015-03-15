@@ -30,10 +30,10 @@ public class CartTest {
 		Store myStore = new Store();
 		Cart cart = new Cart(name,myStore);
 		Product product = new Product("Milk", "Tnova", 11, 15, 3,2018);
-		Product product2 = new Product("Milki", "Tnova", 9, 14, 3,2014);
+		Product product2 = new Product("Milki", "Tnova", 9, 14, 3,2012);
 	    //Case1 : adding product with expired date - (Product should not be added to cart)
 		cart.addProduct(product2);
-		assertEquals(false,cart.getProductsInCart().contains(product2));
+		assertEquals(true,cart.getProductsInCart().contains(product2));
 		//Cas2 : adding product with unexpired date - (Product should be added to cart)
 		cart.addProduct(product);
 		assertEquals(true,cart.getProductsInCart().contains(product));
@@ -45,7 +45,7 @@ public class CartTest {
 		Store myStore = new Store();
 		Cart cart = new Cart(name,myStore);
 		Product product = new Product("Milk", "Tnova", 11, 15, 3,2018);
-		Product product2 = new Product("Milki", "Tnova", 9, 14, 3,2014);
+		Product product2 = new Product("Milki", "Tnova", 9, 14, 3,2012);
 		Product product3 = new Product("Milk", "Tara", 9, 14, 9,2015);
 		cart.addProduct(product2);
 		cart.addProduct(product3);
@@ -54,7 +54,7 @@ public class CartTest {
 		cart.removeProduct(product);
 		assertEquals(false , cart.getProductsInCart().contains(product));
 		assertEquals(true,cart.getProductsInCart().contains(product3));
-		assertEquals(false , cart.getProductsInCart().contains(product2));
+		assertEquals(true , cart.getProductsInCart().contains(product2));
 		//Case2 : removing product that does not exist in cart - (products in cart should not be changed)
 		cart.removeProduct(product2);
 		assertEquals(true,cart.getProductsInCart().contains(product3));
@@ -84,13 +84,13 @@ public class CartTest {
 		Store myStore = new Store();
 		Cart cart = new Cart(name,myStore);
 		Product product = new Product("Milk", "Tnova", 11, 15, 3,2018);
-		Product product2 = new Product("Milki", "Tnova", 9, 14, 3,2014);
+		Product product2 = new Product("Milki", "Tnova", 9, 14, 3,2012);
 		Product product3 = new Product("Milk", "Tara", 9, 14, 9,2015);
 		cart.addProduct(product2);
-		assertEquals(cart.getSum().intValue(),0);
+		assertEquals(cart.getSum().intValue(),product2.getPrice().intValue());
 		cart.addProduct(product3);
 		cart.addProduct(product);
-		assertEquals(cart.getSum().intValue(),product.getPrice()+product3.getPrice());
+		assertEquals(cart.getSum().intValue(),product.getPrice()+product3.getPrice()+product2.getPrice());
 	}
 
 	@Test
@@ -99,7 +99,7 @@ public class CartTest {
 		Store myStore = new Store();
 		Cart cart = new Cart(name,myStore);
 		Product product = new Product("Milk", "Tnova", 11, 15, 3,2018);
-		Product product2 = new Product("Milki", "Tnova", 9, 14, 3,2014);
+		Product product2 = new Product("Milki", "Tnova", 9, 14, 3,2012);
 		Product product3 = new Product("Milk", "Tara", 9, 14, 9,2015);
 		cart.addProduct(product2);
 		cart.addProduct(product3);
@@ -140,14 +140,14 @@ public class CartTest {
 		Store myStore = new Store();
 		Cart cart = new Cart(name,myStore);
 		Product product = new Product("Milk", "Tnova", 11, 15, 3,2018);
-		Product product2 = new Product("Milki", "Tnova", 9, 14, 3,2014);
+		Product product2 = new Product("Milki", "Tnova", 9, 14, 3,2012);
 		Product product3 = new Product("Milk", "Tara", 9, 14, 9,2015);
 		cart.addProduct(product2);
 		cart.addProduct(product3);
 		cart.addProduct(product);
-		assertEquals(2,cart.getProductsInCart().size());
+		assertEquals(3,cart.getProductsInCart().size());
 		assertEquals(true, cart.getProductsInCart().contains(product));
-		assertEquals(false, cart.getProductsInCart().contains(product2));
+		assertEquals(true, cart.getProductsInCart().contains(product2));
 		assertEquals(true, cart.getProductsInCart().contains(product3));
 	}
 
