@@ -18,6 +18,9 @@ public class Cart {
 	private Integer sum;
 	private Set<Product> productsInCart;
 
+	private Integer sale1;
+	private Integer sale2;
+
 	private Store myStore;
 
 	public Cart(String name, Store myStore) {
@@ -27,6 +30,8 @@ public class Cart {
 		this.myStore = myStore;
 
 		id = idGenerator.toString();
+		sale1 = 0;
+		sale2 = 0;
 		idGenerator++;
 	}
 
@@ -36,8 +41,21 @@ public class Cart {
 			System.out.println("pay attention to expiration date");
 			Toolkit.getDefaultToolkit().beep();
 			// TODO bleep + remove product from store/stock
-            return;
+			// TODO siham ?? return;
 		}
+
+		// check if product in sale
+		String id = p.getId();
+		if (id.equals("1") || id.equals("2") || id.equals("3"))
+			sale1++;
+		if (id.equals("5") || id.equals("6") || id.equals("7"))
+			sale2++;
+
+		if (sale1 == 2)
+			System.out.println("you get a milk");
+
+		if (sale2 == 2)
+			System.out.println("you get a sale for Bamba");
 
 		// if (p.getDate() - getDate() < 2)
 		sum = sum + p.getPrice();
@@ -50,6 +68,10 @@ public class Cart {
 		sum = sum - p.getPrice();
 		productsInCart.remove(p);
 		myStore.prodductReturned(p);
+		if (id.equals("1") || id.equals("2") || id.equals("3"))
+			sale1--;
+		if (id.equals("5") || id.equals("6") || id.equals("7"))
+			sale2--;
 
 	}
 
@@ -68,16 +90,17 @@ public class Cart {
 		{
 			Calendar start = Calendar.getInstance();
 			Calendar end = Calendar.getInstance();
-			
-			Calendar now = Calendar.getInstance();   // Gets the current date and time
-			
+
+			Calendar now = Calendar.getInstance(); // Gets the current date and
+													// time
+
 			start.set(Calendar.DAY_OF_MONTH, now.get(Calendar.DAY_OF_MONTH));
 			start.set(Calendar.YEAR, now.get(Calendar.YEAR));
 			start.set(Calendar.MONTH, now.get(Calendar.MONTH));
 
 			end.set(Calendar.DAY_OF_MONTH, day);
 			end.set(Calendar.YEAR, year);
-			end.set(Calendar.MONTH, month-1);
+			end.set(Calendar.MONTH, month - 1);
 
 			Date startDate = start.getTime();
 			Date endDate = end.getTime();
@@ -129,11 +152,21 @@ public class Cart {
 	public Store getMyStore() {
 		return myStore;
 	}
+
 	public Set<Product> getProductsInCart() {
 		return productsInCart;
 	}
 
-	public String getCartId(){
+	public String getCartId() {
 		return id;
+	}
+
+	public boolean isOnSale(Product p) {
+		if (sale1 == 2)
+			return true;
+
+		if (sale2 == 2)
+			return true;
+		return false;
 	}
 }

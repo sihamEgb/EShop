@@ -8,6 +8,7 @@ public class Shipment {
 	private String address;
 	private Set<Box> shipmentBoxes;
 	private static Integer idGenerator = 1;
+	private Integer count;
 
 	private Set<Product> products;
 	private Box currBox;
@@ -18,6 +19,7 @@ public class Shipment {
 		idGenerator++;
 		shipmentBoxes = new HashSet<Box>();
 		currBox = new Box(id);
+		count = 0;
 
 	}
 
@@ -29,17 +31,15 @@ public class Shipment {
 
 		System.out.println("Hello there");
 
-		for (Box b : shipmentBoxes)
-		{
+		count++;
+		for (Box b : shipmentBoxes) {
 			System.out.println("%%%%%%%%%%%");
 			System.out.println(b);
 		}
-		if (currBox.addProduct(currProduct) == true)
-		{
-			System.out.println("Product" +currProduct +" is added");
+		if (currBox.addProduct(currProduct) == true) {
+			System.out.println("Product" + currProduct + " is added");
 			return true;
-		}
-		else {
+		} else {
 			shipmentBoxes.add(currBox);
 			currBox = new Box(id);
 			addProductToBox(currProduct);
@@ -59,6 +59,10 @@ public class Shipment {
 		Set<Box> temp = shipmentBoxes;
 		temp.add(currBox);
 		return temp;
+	}
+
+	public Integer getProductsNum() {
+		return count;
 	}
 
 }
