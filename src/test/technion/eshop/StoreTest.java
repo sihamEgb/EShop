@@ -6,7 +6,9 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import technion.eshop.entities.Cart;
 import technion.eshop.entities.Product;
+import technion.eshop.entities.Shipment;
 import technion.eshop.entities.Store;
 
 
@@ -24,15 +26,16 @@ public class StoreTest {
 	@Test
 	public final void testAddShipment() {
 		Store myStore = new Store();
-		myStore.addShipment();
-		//assertEquals(1,myStore.getShipmentsNumber());
+		Cart cart = new Cart("345re",myStore);
+		Shipment ship = new Shipment(cart);
+		myStore.addShipment(ship);
 	}
 
 	@Test
 	public final void testAddBill() {
 		Store myStore = new Store();
-		myStore.addBill();
-		//assertEquals(1,myStore.getBillsNumber());
+		Cart cart = new Cart("345re",myStore);
+		myStore.addBill(cart);
 	}
 
 	@Test
