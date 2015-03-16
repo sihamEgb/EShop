@@ -5,50 +5,44 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import technion.eshop.entities.Cart;
+import technion.eshop.entities.Store;
 
 public class NameTest {
 
 	@Test
 	public void acceptNameLength() {
-		try {
-		//	Cart.init("12345678");
-		//	Cart.init("abcdesgf");
-		//	Cart.init("AB12fg23");
-		} catch (Exception e) {
-			fail("Not yet implemented");
-		}
+		String name = "4rt5";
+		Store myStore = new Store();
+		Cart newCart = myStore.addCart(name);
+		assertEquals(true,newCart!=null);
+		assertEquals(1,myStore.getCurrentCarts().size());
 	}
 
 	@Test
 	public void refuseBecauseOfNameLength() {
-		try {
-			//Cart.init("1234567");
-			fail("Not yet implemented");
-		} catch (Exception e) {
-
-		}
+		String name = "4rTRY975Yt5";
+		Store myStore = new Store();
+		Cart newCart = myStore.addCart(name);
+		assertEquals(true,newCart==null);
+		assertEquals(0,myStore.getCurrentCarts().size());
 	}
 
 	@Test
 	public void acceptNameCharacters() {
-		try {
-			//Cart.init("12345678");
-			//Cart.init("ABCVXGSJ");
-			//Cart.init("zxcvbnma");
-			//Cart.init("o12hglwJ");
-		} catch (Exception e) {
-			fail("Not yet implemented");
-		}
+		String name = "4OUrt5";
+		Store myStore = new Store();
+		Cart newCart = myStore.addCart(name);
+		assertEquals(true,newCart!=null);
+		assertEquals(1,myStore.getCurrentCarts().size());
 	}
 
 	@Test
 	public void refuseBecauseOfCharacters() {
-		try {
-			//Cart.init("aaaaaaa/");
-			fail("Not yet implemented");
-		} catch (Exception e) {
-
-		}
+		String name = "&4rt*5";
+		Store myStore = new Store();
+		Cart newCart = myStore.addCart(name);
+		assertEquals(true,newCart==null);
+		assertEquals(0,myStore.getCurrentCarts().size());
 	}
 
 }
