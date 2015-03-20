@@ -7,6 +7,12 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 
+ * @author Siham
+ * class for reprt info and statistics about shipments and sales and traffic etc
+ *
+ */
 public class Report {
 
 	Set<Shipment> myShipments;

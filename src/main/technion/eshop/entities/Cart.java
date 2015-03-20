@@ -82,7 +82,9 @@ public class Cart {
 	}
 
 	/**
-	 * is the product more than two days expired
+	 * Gets the date of the product
+	 * 
+	 * @return true if the date is expired more than 48 hours ago
 	 */
 	public boolean isDateBad(Integer year, Integer month, Integer day) {
 		{

@@ -3,6 +3,12 @@ package technion.eshop.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 
+ * @author Siham
+ * a class that represents a box for shipment
+ *
+ */
 public class Box {
 
 	private static Integer idGenerator = 1;

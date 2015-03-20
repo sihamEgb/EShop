@@ -3,6 +3,11 @@ package technion.eshop.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 
+ * @author Siham
+ * Class for shipment info 
+ */
 public class Shipment {
 	private String id;
 	private String address;
