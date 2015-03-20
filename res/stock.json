@@ -1,7 +1,7 @@
 [
   { "id": "1",
   	"brand": "Yotvata",
-    "name": "milk",
+    "name": "Milk",
     "price": 5,
 	"day": 20,
 	"month": 4,
@@ -9,7 +9,7 @@
 	
    { "id": "2",
   	"brand": "Yotvata",
-    "name": "milk",
+    "name": "Milk",
     "price": 5,
 	"day": 20,
 	"month": 4,
@@ -17,14 +17,14 @@
 	
 	{"id": "3",
   	"brand": "Yotvata",
-    "name": "milk",
+    "name": "Milk",
     "price": 5,
 	"day": 20,
 	"month": 4,
 	"year": 2015},
 	
 	{ "id": "4",
-    "name": "milk",
+    "name": "Milk",
     "brand": "Tara",
     "price": 6,
 	"day": 25,

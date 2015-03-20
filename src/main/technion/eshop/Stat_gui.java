@@ -79,18 +79,25 @@ public class Stat_gui {
 		JLabel lblCustometsInDay = new JLabel("customers in day");
 		lblCustometsInDay.setBounds(26, 61, 129, 14);
 		frame.getContentPane().add(lblCustometsInDay);
-
-		JLabel lblCustomersInHour = new JLabel("customers in hour today");
-		lblCustomersInHour.setBounds(26, 97, 135, 14);
-		frame.getContentPane().add(lblCustomersInHour);
-
 		comboBoxDay = new JComboBox();
 		comboBoxDay.setBounds(188, 61, 129, 21);
 		frame.getContentPane().add(comboBoxDay);
 		modelDay = new javax.swing.DefaultComboBoxModel(myReport.getDays()
 				.toArray());
 		comboBoxDay.setModel(modelDay);
+		
+		JLabel lblCustomersInHour = new JLabel("customers in hour today");
+		lblCustomersInHour.setBounds(26, 97, 135, 14);
+		frame.getContentPane().add(lblCustomersInHour);
+	
 
+		comboBoxDay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String day = (String) comboBoxDay.getSelectedItem();
+				textField.setText(myReport.getNumByDay(day));
+
+			}
+		});
 		textField = new JTextField();
 		textField.setBounds(347, 62, 86, 20);
 		frame.getContentPane().add(textField);
@@ -103,6 +110,14 @@ public class Stat_gui {
 				.toArray());
 		comboBoxHour.setModel(modelHour);
 
+		comboBoxHour.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String hour = (String) comboBoxHour.getSelectedItem();
+				textField_1.setText(myReport.getNumByHour(hour));
+
+			}
+		});
+		
 		textField_1 = new JTextField();
 		textField_1.setBounds(347, 98, 86, 20);
 		frame.getContentPane().add(textField_1);
@@ -123,6 +138,13 @@ public class Stat_gui {
 		modelProduct = new javax.swing.DefaultComboBoxModel(myReport
 				.getProducts().toArray());
 		comboBoxProduct.setModel(modelProduct);
+		comboBoxProduct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String product = (String) comboBoxProduct.getSelectedItem();
+				textField_2.setText(myReport.getNumByProduct(product));
+
+			}
+		});
 
 	}
 }

@@ -81,14 +81,6 @@ public class Cart {
 		}
 	}
 
-	public void exitStore() {
-
-	}
-
-	public void sendGrocery() {
-
-	}
-
 	/**
 	 * is the product more than two days expired
 	 */
