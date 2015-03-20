@@ -88,6 +88,7 @@ public class Cart_gui {
 		btnCheckout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
+				System.out.println("calling exit gui from the cart");
 				Exit_gui myGUI = new Exit_gui(currCart);
 				myGUI.main4(null);
 				frame.setVisible(false);

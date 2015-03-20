@@ -23,18 +23,9 @@ public class Shipment {
 
 	}
 
-	// public Shipment(String myAddress) {
-	// address = myAddress;
-
 	// TODO - check this !!
 	public boolean addProductToBox(Product currProduct) {
 
-		System.out.println("Hello there");
-
-		for (Box b : shipmentBoxes) {
-			System.out.println("%%%%%%%%%%%");
-			System.out.println(b);
-		}
 		if (currBox.addProduct(currProduct) == true) {
 			System.out.println("Product" + currProduct + " is added");
 			count++;

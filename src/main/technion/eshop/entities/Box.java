@@ -8,11 +8,9 @@ public class Box {
 	private static Integer idGenerator = 1;
 	private String id;
 	private String shipmentId;
-	// private Integer count;
 	private Set<Product> products;
-	
+
 	public Box(String shipmentId) {
-		// count = 0;
 		id = idGenerator.toString();
 		idGenerator++;
 		this.shipmentId = shipmentId;
@@ -50,5 +48,4 @@ public class Box {
 		return id;
 	}
 
-	
 }

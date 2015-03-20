@@ -32,10 +32,11 @@ public class Report {
 	}
 
 	public void addBill(Cart c) {
+		System.out.println("add bill in report class");
 		myCarts.add(c);
 		for (Product p : c.getProductsInCart()) {
-			System.out.println(p.getName());
-			System.out.println(productCount.get(p.getName()));
+		//	System.out.println(p.getName());
+		//	System.out.println(productCount.get(p.getName()));
 			productCount.put(p.getName(), (productCount.get(p.getName()) + 1));
 		}
 

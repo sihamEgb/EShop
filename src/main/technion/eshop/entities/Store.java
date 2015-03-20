@@ -13,41 +13,27 @@ import com.google.gson.Gson;
 
 public class Store {
 
-	private Set<Cart> currentCarts; // TODO
-
-	// TODO add more info like sum and address... for report stuff
-	// private Integer shipmentsNumber;
-	// private Integer billsNumber;
-
+	private Set<Cart> currentCarts;
 	private ArrayList<Product> stockProducts;
-
 	private Report storeReport;
 
 	public Store() {
 		stockProducts = new ArrayList<Product>();
 		initProducts();
 		currentCarts = new HashSet<Cart>();
-		// shipmentsNumber = new Integer(0);
-		// billsNumber = new Integer(0);
+
 		storeReport = new Report();
 	}
 
 	public void addShipment(Shipment s) {
 		storeReport.addShipment(s);
-
 	}
 
 	public void addBill(Cart c) {
-		// billsNumber++;
+		System.out.println("add bill in store class");
 		storeReport.addBill(c);
 	}
 
-	// public int getBillsNumber(){
-	// return billsNumber.intValue();
-	// }
-	// public int getShipmentsNumber(){
-	// return shipmentsNumber.intValue();
-	// }
 	/**
 	 * adds the products in the store...
 	 */
@@ -57,14 +43,10 @@ public class Store {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(
 					"res\\stock.json"));
-
 			Product[] arr = gson.fromJson(br, Product[].class);
-
 			for (Product p : arr) {
-				// System.out.println("Name Of product: " + p.getName());
 				stockProducts.add(p);
 			}
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -76,7 +58,6 @@ public class Store {
 
 	public void productTaken(Product p) {
 		stockProducts.remove(p);
-
 	}
 
 	public void productReturned(Product p) {

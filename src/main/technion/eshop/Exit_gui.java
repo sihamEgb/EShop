@@ -36,6 +36,9 @@ public class Exit_gui {
 			public void run() {
 				try {
 					Exit_gui window = new Exit_gui(myCart);
+					System.out.println("add bill in EXIT GUI");
+					myCart.getMyStore().addBill(myCart);
+
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,7 +61,7 @@ public class Exit_gui {
 	private void initialize() {
 
 		// TODO
-		myCart.getMyStore().addBill(myCart);
+
 		frame = new JFrame();
 		frame.setBounds(100, 100, 500, 400);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
