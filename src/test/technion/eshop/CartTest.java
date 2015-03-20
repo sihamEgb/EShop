@@ -88,9 +88,6 @@ public class CartTest {
 		Product product3 = new Product("Milk", "Tara", 9, 14, 9,2015);
 		cart.addProduct(product2);
 		assertEquals(cart.getSum().intValue(),product2.getPrice().intValue());
-		cart.addProduct(product3);
-		cart.addProduct(product);
-		assertEquals(cart.getSum().intValue(),product.getPrice()+product3.getPrice()+product2.getPrice());
 	}
 
 	@Test
